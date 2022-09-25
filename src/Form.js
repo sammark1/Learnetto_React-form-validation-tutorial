@@ -4,6 +4,10 @@ import React, { useState } from "react";
 export default function Form() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [formErrors, setFormErrors] = useState({ email: "", password: "" });
+  const [emailValid, setEmailValid] = useState(false);
+  const [passwordValid, setPasswordValid] = useState(false);
+  const [formValid, setFormValid] = useState(false);
 
   return (
     <form className="demoForm">
