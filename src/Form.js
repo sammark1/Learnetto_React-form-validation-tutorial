@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import "./Form.css";
 
 export default function Form() {
   const [email, setEmail] = useState("");
@@ -14,19 +13,15 @@ export default function Form() {
     switch (fieldName) {
       case "email":
         setEmailValid(value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i));
-        // console.log("email validation", emailValid);
         fieldValidationErrors.email = emailValid ? "" : "is invalid";
         setFormErrors(fieldValidationErrors);
-        // console.log(formErrors);
         break;
       case "password":
         setPasswordValid(value.length >= 6);
-        // console.log("password validation", passwordValid);
         fieldValidationErrors.password = passwordValid
           ? ""
           : "must contain more than 6 characters";
         setFormErrors(fieldValidationErrors);
-        // console.log(formErrors);
         break;
       default:
         break;
@@ -36,12 +31,11 @@ export default function Form() {
 
   const validateForm = () => {
     setFormValid(emailValid && passwordValid);
-    // console.log("form valid: ", formValid);
   };
 
-  const errorClass = (error)=>{
-    return(error.length === 0 ? '' : 'has-error')
-  }
+  const errorClass = (error) => {
+    return error.length === 0 ? "" : "has-error";
+  };
 
   return (
     <form className="demoForm">
@@ -54,7 +48,6 @@ export default function Form() {
           name="email"
           defaultValue={email}
           onChange={(e) => {
-            // console.log(e.target.value);
             setEmail(e.target.value);
             validateFields("email", e.target.value);
           }}
@@ -68,7 +61,6 @@ export default function Form() {
           name="password"
           defaultValue={password}
           onChange={(e) => {
-            // console.log(e.target.value);
             setPassword(e.target.value);
             validateFields("password", e.target.value);
           }}
